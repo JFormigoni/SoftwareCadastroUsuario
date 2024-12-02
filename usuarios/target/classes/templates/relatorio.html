@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório de Usuários</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container mt-4">
+    <h1 class="mb-4">Relatório de Usuários</h1>
+
+    <!-- Relatório de quantidade de usuários -->
+    <div class="card mb-4">
+        <div class="card-header">
+            <h5 class="card-title">Resumo de Usuários</h5>
+        </div>
+        <div class="card-body">
+            <p><strong>Total de usuários cadastrados:</strong> <span th:text="${totalUsuarios}"></span></p>
+            <p><strong>Total de administradores:</strong> <span th:text="${totalAdmins}"></span></p>
+            <p><strong>Total de usuários normais:</strong> <span th:text="${totalNormais}"></span></p>
+        </div>
+    </div>
+    <a href="/usuarios" class="btn btn-danger">voltar</a>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

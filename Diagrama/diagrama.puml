@@ -1,0 +1,54 @@
+@startuml
+skinparam classAttributeIconSize 0
+skinparam style strictuml
+
+class Login {
+  - email: String
+  - senha: String
+  + autenticar(): boolean
+}
+
+class Dashboard {
+  + listarUsuarios(): void
+  + cadastrarUsuario(): void
+  + gerarRelatorio(): void
+}
+
+class ListarUsuarios {
+  - usuarios: List<Usuario>
+  + buscar(nomeOuEmail: String): List<Usuario>
+  + editarUsuario(id: int): void
+  + excluirUsuario(id: int): void
+}
+
+class CadastrarUsuario {
+  - nome: String
+  - email: String
+  - senha: String
+  - nivelAcesso: String
+  + salvar(): void
+}
+
+class GerarRelatorio {
+  - periodo: String
+  - tipo: String
+  + gerarRelatorio(): String
+  + exportarPDF(): void
+}
+
+class Usuario {
+  - id: int
+  - nome: String
+  - email: String
+  - nivelAcesso: String
+}
+
+Login --> Dashboard : "Redireciona"
+Dashboard --> ListarUsuarios : "Acessa"
+Dashboard --> CadastrarUsuario : "Acessa"
+Dashboard --> GerarRelatorio : "Acessa"
+ListarUsuarios --> Usuario : "Gerencia"
+CadastrarUsuario --> Usuario : "Cria"
+GerarRelatorio --> Usuario : "Usa dados"
+
+@enduml
